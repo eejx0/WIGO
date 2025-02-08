@@ -4,6 +4,7 @@ import { OnBoarding } from "./pages/onBoarding";
 import { SignUp } from "./pages/signUp";
 import { Login } from "./pages/login";
 import { Home } from "./pages/home";
+import { Schedule } from "./pages/schedule/schedule";
 
 const Router = () => {
     return (
@@ -14,6 +15,7 @@ const Router = () => {
                 <Route path="/" element={<Home />}/>
                 <Route path="/signUp" element={<SignUp />}/>
                 <Route path="/login" element={<Login />}/>
+                <Route path="/schedule" element={<Schedule />}/>
             </Routes>
         </BrowserRouter>
     )
