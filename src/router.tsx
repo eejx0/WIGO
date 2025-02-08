@@ -5,6 +5,7 @@ import { SignUp } from "./pages/signUp";
 import { Login } from "./pages/login";
 import { Home } from "./pages/home";
 import { Schedule } from "./pages/schedule/schedule";
+import { AddSchedule } from "./pages/schedule/addSchedule";
 
 const Router = () => {
     return (
@@ -16,6 +17,7 @@ const Router = () => {
                 <Route path="/signUp" element={<SignUp />}/>
                 <Route path="/login" element={<Login />}/>
                 <Route path="/schedule" element={<Schedule />}/>
+                <Route path="/schedule/add" element={<AddSchedule />}/>
             </Routes>
         </BrowserRouter>
     )

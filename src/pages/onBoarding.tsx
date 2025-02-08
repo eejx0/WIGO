@@ -34,7 +34,7 @@ export const OnBoarding = () => {
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 70px);
+    height: 100vh;
     overflow: hidden;
     position: relative;
 `;
@@ -51,6 +51,7 @@ const BackgroundImg = styled.div`
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    margin-top: 70px;
     > p {
         font-size: 45px;
         color: white;

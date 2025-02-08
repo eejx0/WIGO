@@ -16,6 +16,10 @@ const Wrapper = styled.div`
     height: 70px;
     background-color: white;
     padding-left: 150px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
     > img {
         cursor: pointer;
     }

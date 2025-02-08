@@ -6,6 +6,7 @@ import { NonTravelingCard } from "../../components/schedule/nonTravelingCard"
 import { TravelingCard } from "../../components/schedule/travelingCard"
 import PlusIcon from "../../assets/plus.svg";
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 export const Schedule = () => {
     const [isTraveling, setIsTraveling] = useState(true);
@@ -20,9 +21,11 @@ export const Schedule = () => {
                     {isTraveling ? <TravelingCard /> : <NonTravelingCard/>}
                     <ButtonWrapper>
                         <DetailButton>자세히 보기</DetailButton>
-                        <AddButton>
-                            <img src={PlusIcon} alt="+" />
-                        </AddButton>
+                        <Link to={'/schedule/add'}>
+                            <AddButton>
+                                <img src={PlusIcon} alt="+" />
+                            </AddButton>
+                        </Link>
                     </ButtonWrapper>
                 </CardWrapper>
             </Wrapper>
@@ -40,6 +43,7 @@ const Wrapper = styled.div`
     margin-top: 60px;
     overflow: hidden; 
     width: 100vw;
+    margin-top: 130px;
 `;
 
 const CalenderWrapper = styled.div`

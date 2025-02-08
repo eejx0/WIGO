@@ -55,7 +55,7 @@ export const Home = () => {
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 70px);
+    height: 100vh;
     overflow: hidden;
     position: relative;
 `;
@@ -65,6 +65,7 @@ const BackgroundImg = styled.div`
     background-size: cover;
     width: 100vw;
     height: 450px;
+    margin-top: 70px;
     border-bottom-right-radius: 80px;
     border-bottom-left-radius: 80px;
     display: flex;
