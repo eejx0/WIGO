@@ -21,10 +21,12 @@ export const Home = () => {
                         <p className="Hakgyo">와 함께 떠나요</p>
                     </TextWrapper>
                     <ButtonWrapper>
-                        <ButtonBox>
-                            <CalendarIcon />
-                            <p>일정</p>
-                        </ButtonBox>
+                        <Link to={'/schedule'}>
+                            <ButtonBox>
+                                <CalendarIcon />
+                                <p>일정</p>
+                            </ButtonBox>
+                        </Link>
                         <ButtonBox>
                             <PlaceIcon />
                             <p>장소</p>
