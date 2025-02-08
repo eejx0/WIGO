@@ -23,11 +23,9 @@ export const AddSchedule = () => {
         const end = new Date(endDate);
         const dateArray = [];
     
-        // 시작 날짜부터 종료 날짜까지 반복하여 날짜 배열 생성
         while (start <= end) {
-            // 그대로 날짜를 객체로 넣어주기만 하면 됩니다.
             dateArray.push({ id: dateArray.length + 1, date: start.toISOString(), items: [{ id: 1, text: "" }] });
-            start.setDate(start.getDate() + 1); // 날짜 1일 증가
+            start.setDate(start.getDate() + 1);
         }
     
         return dateArray;
@@ -82,9 +80,7 @@ export const AddSchedule = () => {
 
     useEffect(() => {
         if (arriveDate && departDate) {
-            // 날짜에서 '년', '월', '일'을 제거하고 'YYYY-MM-DD' 형식으로 변환
             const formatDate = (date: string) => {
-                // '년', '월', '일'을 제거하고 'YYYY-MM-DD' 형식으로 변환
                 const regex = /(\d{4})년 (\d{2})월 (\d{2})일/;
                 const match = date.match(regex);
             
@@ -95,18 +91,18 @@ export const AddSchedule = () => {
                 return '';
             };
     
-            console.log("Depart Date:", departDate); // departDate 확인
-            console.log("Arrive Date:", arriveDate); // arriveDate 확인
+            console.log("Depart Date:", departDate); 
+            console.log("Arrive Date:", arriveDate); 
             
-            const startDate = formatDate(departDate);  // 'YYYY-MM-DD' 형식으로 변환
-            const endDate = formatDate(arriveDate);    // 'YYYY-MM-DD' 형식으로 변환
+            const startDate = formatDate(departDate);  
+            const endDate = formatDate(arriveDate);   
     
-            console.log("Formatted Start Date:", startDate); // 포맷된 startDate 확인
-            console.log("Formatted End Date:", endDate); // 포맷된 endDate 확인
+            console.log("Formatted Start Date:", startDate); 
+            console.log("Formatted End Date:", endDate);
     
             const generatedSchedules = generateDateRange(startDate, endDate);
-            console.log("Generated Schedules:", generatedSchedules); // 생성된 일정 확인
-            setSchedules(generatedSchedules);  // 날짜 범위 설정
+            console.log("Generated Schedules:", generatedSchedules); 
+            setSchedules(generatedSchedules); 
         }
     }, [arriveDate, departDate]);
     
@@ -148,7 +144,6 @@ export const AddSchedule = () => {
                                         {schedules.map((schedule) => (
                                             <tr key={schedule.id}>
                                                 <td className="date">
-                                                    {/* 날짜를 'YYYY년 MM월 DD일' 형태로 표시 */}
                                                     <span>{new Date(schedule.date).toLocaleDateString('ko-KR')}</span>
                                                 </td>
                                                 <td className="inputs">
