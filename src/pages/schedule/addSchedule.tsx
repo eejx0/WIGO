@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { WaitingScheduleCard } from "../../components/schedule/waitingScheduleCard";
 import PlusIcon from "../../assets/whitePlus.svg";
 import React from "react";
+import { SideBar } from "../../components/schedule/sideBar";
 
 
 interface Schedule {
@@ -35,21 +36,21 @@ export const AddSchedule = () => {
 
     const addScheduleItem = (date: string) => {
         setSchedules((prevSchedules) =>
-          prevSchedules.map((schedule) =>
-            schedule.date === date
-              ? {
-                  ...schedule,
-                  items: [
-                    ...schedule.items,
-                    { id: schedule.items.length + 1, text: "" },
-                  ],
-                }
-              : schedule
-          )
+            prevSchedules.map((schedule) =>
+                schedule.date === date
+                ? {
+                    ...schedule,
+                    items: [
+                        ...schedule.items,
+                        { id: schedule.items.length + 1, text: "" },
+                    ],
+                    }
+                : schedule
+            )
         );
-      };
+    };
     
-      const handleInputChange = (date: string, id: number, value: string) => {
+    const handleInputChange = (date: string, id: number, value: string) => {
         setSchedules((prevSchedules) =>
           prevSchedules.map((schedule) =>
             schedule.date === date
@@ -62,7 +63,7 @@ export const AddSchedule = () => {
               : schedule
           )
         );
-      };
+    };
 
     const handleDate = (e: any, setDate: React.Dispatch<React.SetStateAction<string>>) => {
         let value = e.target.value || ""; 
@@ -90,18 +91,11 @@ export const AddSchedule = () => {
                 }
                 return '';
             };
-    
-            console.log("Depart Date:", departDate); 
-            console.log("Arrive Date:", arriveDate); 
             
             const startDate = formatDate(departDate);  
             const endDate = formatDate(arriveDate);   
     
-            console.log("Formatted Start Date:", startDate); 
-            console.log("Formatted End Date:", endDate);
-    
             const generatedSchedules = generateDateRange(startDate, endDate);
-            console.log("Generated Schedules:", generatedSchedules); 
             setSchedules(generatedSchedules); 
         }
     }, [arriveDate, departDate]);
@@ -175,8 +169,9 @@ export const AddSchedule = () => {
                         )}
                     </InputWrapper>
                 </LeftWrapper>
-                <RightWrapper>
-                </RightWrapper>
+                <SideBarWrapper>
+                    <SideBar />
+                </SideBarWrapper>
             </Wrapper>
         </>
     )
@@ -328,7 +323,9 @@ const TextWrapper = styled.div`
     }
 `;
 
-const RightWrapper = styled.div`
-    display: flex;
-    width: 27%;
+const SideBarWrapper = styled.div`
+    width: 21%;
+    position: fixed;
+    top: 100px;
+    right: 150px;
 `;
